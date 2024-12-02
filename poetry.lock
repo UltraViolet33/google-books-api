@@ -503,13 +503,13 @@ files = [
 
 [[package]]
 name = "easy-http-requests"
-version = "0.5.1"
+version = "0.5.2"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "easy_http_requests-0.5.1-py3-none-any.whl", hash = "sha256:4d6a5f1fa73dac6efc520ac2aa6ee4182b90068ca91dca8e6cf66979cf8a41fb"},
-    {file = "easy_http_requests-0.5.1.tar.gz", hash = "sha256:5c4e7811cc1e151ce1436991dff58c652d1347d11270307fb5e71e71df8fca89"},
+    {file = "easy_http_requests-0.5.2-py3-none-any.whl", hash = "sha256:884b55bbfa598d8cf2e456e1402f62bec4afce5724621e490272f8af4d791c8b"},
+    {file = "easy_http_requests-0.5.2.tar.gz", hash = "sha256:935d38d743da19fad3f5730dfb05cf70b576de26bc42668ed7798fadc06b673a"},
 ]
 
 [package.dependencies]
