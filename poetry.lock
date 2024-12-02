@@ -502,6 +502,20 @@ files = [
 ]
 
 [[package]]
+name = "easy-http-requests"
+version = "0.5.1"
+description = ""
+optional = false
+python-versions = "<4.0,>=3.10"
+files = [
+    {file = "easy_http_requests-0.5.1-py3-none-any.whl", hash = "sha256:4d6a5f1fa73dac6efc520ac2aa6ee4182b90068ca91dca8e6cf66979cf8a41fb"},
+    {file = "easy_http_requests-0.5.1.tar.gz", hash = "sha256:5c4e7811cc1e151ce1436991dff58c652d1347d11270307fb5e71e71df8fca89"},
+]
+
+[package.dependencies]
+requests = ">=2.32.3,<3.0.0"
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
@@ -1589,4 +1603,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "fb299dc01bbf4857cf2fd1bf932d6e0226c9afb8f2b0a0483d7b8f7111f03cce"
+content-hash = "e9fdcbff166e33fe8bf7b318e316abe822bba106cd149163783061734234f9ff"
