@@ -8,6 +8,9 @@ documentation:
 	poetry run sphinx-apidoc -o docs/source google_books_api
 	poetry run sphinx-build -b html docs/source docs/build/html
 
+build:
+	poetry build
+
 lint-black:
 	poetry run black --check google_books_api tests
 
