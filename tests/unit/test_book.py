@@ -1,5 +1,5 @@
 import unittest
-from google_books_api.models import GoogleBook, GoogleBookBuilder
+from google_books_api.models import GoogleBookBuilder
 
 
 class TestBook(unittest.TestCase):

@@ -8,9 +8,11 @@ from google_books_api.google_books_api import GoogleBookApi
 
 class TestSearchBook(unittest.TestCase):
 
+    GOOGLE_BASE_URL = "FAKE_URL"
+
     @patch("requests.request")
     def test_search_book(self, mock_request):
-        book_goggle_api = GoogleBookApi("https://www.googleapis.com/books/v1/")
+        book_goggle_api = GoogleBookApi(self.GOOGLE_BASE_URL)
         mock_response = MagicMock(spec=Response)
         mock_response.json.return_value = {
             "totalItems": 100,
@@ -28,7 +30,7 @@ class TestSearchBook(unittest.TestCase):
 
     @patch("requests.request")
     def test_search_book_by_title(self, mock_request):
-        book_goggle_api = GoogleBookApi("https://www.googleapis.com/books/v1/")
+        book_goggle_api = GoogleBookApi(self.GOOGLE_BASE_URL)
         mock_response = MagicMock(spec=Response)
         mock_response.json.return_value = {
             "totalItems": 100,
@@ -45,7 +47,7 @@ class TestSearchBook(unittest.TestCase):
 
     @patch("requests.request")
     def test_get_book_by_id(self, mock_request):
-        book_goggle_api = GoogleBookApi("https://www.googleapis.com/books/v1/")
+        book_goggle_api = GoogleBookApi(self.GOOGLE_BASE_URL)
         mock_response = MagicMock(spec=Response)
         mock_response.json.return_value = {
             "id": "123",
@@ -68,7 +70,7 @@ class TestSearchBook(unittest.TestCase):
 
     @patch("requests.request")
     def test_make_request(self, mock_request):
-        book_goggle_api = GoogleBookApi("https://www.googleapis.com/books/v1/")
+        book_goggle_api = GoogleBookApi(self.GOOGLE_BASE_URL)
         mock_response = MagicMock(spec=Response)
         mock_response.json.return_value = {
             "id": "123",
@@ -91,7 +93,7 @@ class TestSearchBook(unittest.TestCase):
 
     @patch("requests.request")
     def test_make_request_error(self, mock_request):
-        book_goggle_api = GoogleBookApi("https://www.googleapis.com/books/v1/")
+        book_goggle_api = GoogleBookApi(self.GOOGLE_BASE_URL)
         mock_request.side_effect = requests.exceptions.RequestException(
             "HTTP request failed"
         )
