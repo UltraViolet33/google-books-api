@@ -1,7 +1,7 @@
 from typing import Optional
 from easy_http_requests.easy_http_request import EasyHttpRequest
 from easy_http_requests.easy_http_response import EasyHttpResponse
-from google_books_api.google_book import GoogleBook
+from google_books_api.models import GoogleBookBuilder, GoogleBook
 from google_books_api.google_books_api_params import GoogleBooksApiParams
 from google_books_api.google_books_api_result import GoogleBooksApiResult
 from google_books_api.exceptions.google_books_api_exception import (
@@ -65,7 +65,7 @@ class GoogleBookApi:
             GoogleBooksApiException: If an error occurs while making the request.
         """
         response = self._make_get_request(f"volumes/{book_id}")
-        return GoogleBook(response.body)
+        return GoogleBookBuilder([response.body]).build()[0]
 
     def _make_get_request(
         self, endpoint: str, params: Optional[dict] = None
