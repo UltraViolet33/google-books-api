@@ -1,4 +1,4 @@
-from google_books_api.google_book import GoogleBook
+from google_books_api.models import GoogleBook
 
 
 class GoogleBooksApiResult:
