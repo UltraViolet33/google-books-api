@@ -5,7 +5,7 @@ test-coverage:
 	poetry run pytest --cov=google_books_api --cov-report=term-missing
 
 documentation:
-	poetry run sphinx-apidoc -o docs/source google_books_api
+	poetry run sphinx-apidoc -o docs/source 	
 	poetry run sphinx-build -b html docs/source docs/build/html
 
 build:
