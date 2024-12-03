@@ -1,4 +1,4 @@
-from google_books_api.models import GoogleBook
+from google_books_api.models import GoogleBook, GoogleBookBuilder
 
 
 class GoogleBooksApiResult:
@@ -18,4 +18,4 @@ class GoogleBooksApiResult:
         """
         self.total_items: int = result.get("totalItems", 0)
         self.items: list = result.get("items", [])
-        self.books: list[GoogleBook] = [GoogleBook(item) for item in self.items]
+        self.books: list[GoogleBook] = GoogleBookBuilder(self.items).build()
