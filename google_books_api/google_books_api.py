@@ -69,6 +69,8 @@ class GoogleBookApi:
             GoogleBooksApiException: If an error occurs while making the request.
         """
         response = self._make_get_request(f"volumes/{book_id}")
+        if response.status_code() != 200:
+            return GoogleBookBuilder([]).build()
         return GoogleBookBuilder([response.body]).build()[0]
 
     def _make_get_request(
