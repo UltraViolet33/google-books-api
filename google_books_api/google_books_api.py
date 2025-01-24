@@ -10,6 +10,8 @@ from google_books_api.exceptions.google_books_api_exception import (
 
 
 class GoogleBookApi:
+    MAX_RESULT = 40
+
     def __init__(self, base_url: str):
         self.base_url = base_url
         self.http_request: EasyHttpRequest = EasyHttpRequest(self.base_url)
@@ -44,6 +46,8 @@ class GoogleBookApi:
         Raises:
             GoogleBooksApiException: If an error occurs while making the request.
         """
+        if max_results > self.MAX_RESULT:
+            max_results = self.MAX_RESULT
         params = {
             "q": GoogleBooksApiParams.IN_TITLE + title,
             GoogleBooksApiParams.MAX_RESULTS: max_results,
@@ -65,6 +69,8 @@ class GoogleBookApi:
             GoogleBooksApiException: If an error occurs while making the request.
         """
         response = self._make_get_request(f"volumes/{book_id}")
+        if response.status_code() != 200:
+            return GoogleBookBuilder([]).build()
         return GoogleBookBuilder([response.body]).build()[0]
 
     def _make_get_request(
